@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+    <!-- CSS -->
+<style>
+    .logo {
+        display: block;
+        margin: 0 auto 20px auto; /* Gambar ditengah dengan jarak bawah 20px */
+        width: 100px; /* Ukuran gambar disesuaikan */
+        height: auto; /* Menjaga proporsi gambar */
+        background: none; /* Pastikan tidak ada background */
+    }
+
+    body,
+    html {
+        font-family: Quicksand, sans-serif !important;
+        height: 100%;
+        background-color: #f8f9fa;
+    }
+
+    .navbar .nav-link.active {
+        text-decoration: underline;
+        color: white !important;       /* Pastikan teks tetap terlihat jelas */
+    }
+
+            /* Atur tinggi carousel */
+    .carousel-item {
+        height: 500px; /* Tinggi setiap item carousel */
+    }
+
+    /* Atur gambar dalam carousel */
+    .carousel-item img {
+        object-fit: cover; /* Menjaga proporsi gambar */
+        height: 80%; /* Gambar memenuhi tinggi carousel */
+        width: 80%; /* Gambar memenuhi lebar carousel */
+    }
+
+    .footer {
+        background-color: #9e9e9e; /* Warna latar belakang */
+        color: white; /* Warna teks */
+        text-align: center;
+        padding: 3px;
+        margin-top: auto;
+    }
+</style>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #9e9e9e;">
+        <div class="container">
+            <!-- Logo di pojok kiri -->
+            <a class="navbar-brand d-flex align-items-center text-white" href="<%= url %>">
+                <img src="/public/images/buku.png" alt="Logo" width="30" height="30" class="d-inline-block align-top me-2">
+            </a>
+
+            <!-- Toggler untuk navbar pada perangkat kecil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Konten navbar -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <!-- Menu di tengah -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="<%= url %>">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="<%= url %>profile">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="<%= url %>contact">Todo</a>
+                    </li>
+                </ul>
+
+                <!-- Tombol Sign Out di kanan -->
+                <a href="<%= url %>login/logout" 
+                    class="d-flex align-items-center text-decoration-none" 
+                    onclick="return confirmLogout();">
+                    <i class="fa fa-sign-out me-2 text-white"></i> 
+                    <span class="text-white">Sign Out</span>
+                </a>
+                
+                <script>
+                    function confirmLogout() {
+                        return confirm("Apakah Anda yakin ingin keluar?");
+                    }
+                </script>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <section class="mt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Hi, <b><%= userName %></b></h3>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>Selamat Datang</p>
+                                <footer class="blockquote-footer">Muhajirah Ulfah</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="/public/images/buku1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>힘내십시오! 당신은 반드시 해낼 수 있습니다.
+                            <br> stay strong! You can definitely do it.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/public/images/buku2.jpeg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p> 포기하지 마십시오. 이미 많은 것을 이룬 것입니다.
+                            <br>Please don't give up. You have already achieved so much.
+                        </p>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Copyright 2024 @de.faulf</p>
+        </div>
+    </footer>
+</body>
+
+</html>
